@@ -48,4 +48,9 @@ public class GroceryListServiceImpl implements GroceryListService {
 		return groceryListRepo.findAll();
 	}
 
+	@Override
+	public GroceryList getGroceryListById(Integer groceryId) {
+		return groceryListRepo.findById(groceryId).orElseGet(null);
+	}
+
 }

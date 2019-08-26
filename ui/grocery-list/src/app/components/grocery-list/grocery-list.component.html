@@ -1,0 +1,18 @@
+<h1>Grocery Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of groceryLists">
+      <td>{{list.groceryListId}}</td>
+      <td>Grocery List # {{list.groceryListId}}</td>
+      <td><a routerLink="/grocery_list_items/{{ list.groceryListId }}">View Items</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+<h1>List of Items for grocery list # {{groceryListId}}</h1>
+
+<ul>
+  <li *ngFor="let error of errors">{{error}}</li>
+</ul>
+
+<div>
+  <label for="itemName">Item Name</label>
+  <input type="text" [(ngModel)]="groceryItem.itemName" required >
+  <label for="itemQuantity">Item Quantity</label>
+  <input type="text" [(ngModel)]="groceryItem.itemQuantity" required >
+  <label for="itemType">Item Type</label>
+  <input type="text" [(ngModel)]="groceryItem.itemType" required >
+  <input type="button" (click)="addItem()" value="Add Item">
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+      <td>Quantity</td>
+      <td>Type</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of groceryList.groceryItems">
+      <td>{{item.itemId}}</td>
+      <td>{{item.itemName}}</td>
+      <td>{{item.itemQuantity}}</td>
+      <td>{{item.itemType}}</td>
+      <td><button (click)="removeItem(item)">Remove Item</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.revature.grocery.list.service.GroceryListService;
 
 @RestController
 @RequestMapping("/grocery-lists")
+@CrossOrigin(origins = "*")
 public class GroceryListController {
 
 	private GroceryListService groceryListServ;
@@ -62,6 +64,17 @@ public class GroceryListController {
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<GroceryListDto> getGroceryList(@PathVariable("id") Integer groceryListId) {
+		GroceryList groceryList = groceryListServ.getGroceryListById(groceryListId);
+		
+		if (groceryList != null) {
+			return ResponseEntity.status(HttpStatus.OK).body(mapper.map(groceryList, GroceryListDto.class));
+		}
+		
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
 
 }

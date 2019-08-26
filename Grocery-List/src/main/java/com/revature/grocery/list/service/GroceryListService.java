@@ -9,6 +9,8 @@ public interface GroceryListService {
 	
 	public boolean deleteGroceryList(Integer groceryListId);
 	
+	public GroceryList getGroceryListById(Integer groceryId);
+	
 	public List<GroceryList> getAllGroceryLists();
 
 }
