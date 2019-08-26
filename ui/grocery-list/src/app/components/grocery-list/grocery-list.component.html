@@ -1,6 +1,6 @@
 <h1>Grocery Lists</h1>
 
-<table>
+<table class="table table-hover table-bordered table-striped">
   <thead>
     <tr>
       <td>Id</td>
@@ -12,7 +12,7 @@
     <tr *ngFor="let list of groceryLists">
       <td>{{list.groceryListId}}</td>
       <td>Grocery List # {{list.groceryListId}}</td>
-      <td><a routerLink="/grocery_list_items/{{ list.groceryListId }}">View Items</a></td>
+      <td><a class="btn btn-primary" routerLink="/grocery_list_items/{{ list.groceryListId }}">View Items</a></td>
     </tr>
   </tbody>
 </table>

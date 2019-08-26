@@ -27,13 +27,19 @@ export class ItemListComponent implements OnInit {
     this.groceryListServ.getGroceryById(this.groceryListId).subscribe(list => {
       this.groceryList = list;
       this.groceryItem.groceryListId = list.groceryListId;
-      this.groceryItem.itemName = '';
-      this.groceryItem.itemQuantity = 0;
-      this.groceryItem.itemType = '';
+      this.clearForm();
     });
   }
 
+  clearForm() {
+    this.groceryItem.itemName = '';
+    this.groceryItem.itemQuantity = 0;
+    this.groceryItem.itemType = '';
+  }
+
   addItem() {
+    this.errors = [];
+
     if (this.groceryItem.itemName.length === 0) {
       this.errors.push('Item name is required');
     }
@@ -52,7 +58,7 @@ export class ItemListComponent implements OnInit {
 
     this.groceryItemServ.addItem(this.groceryItem).subscribe(item => {
       this.groceryList.groceryItems.push(item);
-      this.errors = [];
+      this.clearForm();
     });
   }
 
