@@ -1,10 +1,12 @@
 package com.revature.grocery.list.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.grocery.list.model.GroceryItem;
 import com.revature.grocery.list.repository.GroceryItemRepository;
 
+@Service
 public class GroceryItemServiceImpl implements GroceryItemService {
 
 	private GroceryItemRepository groceryItemRepo;

@@ -5,10 +5,12 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.grocery.list.model.GroceryList;
 import com.revature.grocery.list.repository.GroceryListRepository;
 
+@Service
 public class GroceryListServiceImpl implements GroceryListService {
 
 	private GroceryListRepository groceryListRepo;

@@ -30,10 +30,9 @@ public class GroceryList {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroceryList(Integer groceryListId, List<GroceryItem> groceryItems) {
+	public GroceryList(Integer groceryListId) {
 		super();
 		this.groceryListId = groceryListId;
-		this.groceryItems = groceryItems;
 	}
 
 	public Integer getGroceryListId() {
